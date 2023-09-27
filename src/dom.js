@@ -1,6 +1,12 @@
 export function loadPage() {
     let header = create('header');
-    let 
+    document.appendChild(header);
+
+    let main = create('main');
+    document.appendChild(main);
+
+    let footer = create('footer');
+    document.appendChild(footer);
 }
 
 function create(element) {
