@@ -1,6 +1,7 @@
 import { loadProjects } from './projects'
+import { tasks } from './index'; 
 
-const content = document.querySelector('#content');
+export const content = document.querySelector('#content');
 
 export function loadPage() {
     loadHeader();
@@ -46,9 +47,9 @@ function createList(parent, name) {
     div.appendChild(heading);
     let list = document.createElement('ul');
     div.appendChild(list);
-    for (let i = 1; i < 4; i++) {
+    for (let task in tasks) {
         let li = document.createElement('li');
-        li.innerText = `Task ${i}`;
+        li.innerText = `Task ${task}`;
         list.appendChild(li);
     }
 }

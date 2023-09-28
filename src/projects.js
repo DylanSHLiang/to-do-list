@@ -1,4 +1,5 @@
 import { projects } from "./index";
+import { createProject } from "./popup";
 
 export function loadProjects(parent) {
     parent.innerHTML = '';
@@ -13,13 +14,39 @@ export function loadProjects(parent) {
     for (let project of projects) {
         loadProjectCard(container, project);
     }
+
+    let add = document.createElement('button');
+    add.classList.add('add');
+    add.innerText = 'Create Project';
+    parent.appendChild(add);
+    add.addEventListener('click', () => createProject(container));
 }
 
-function loadProjectCard(parent, project) {
+export function loadProjectCard(parent, project) {
     let card = document.createElement('div');
+    card.classList.add('card');
     parent.appendChild(card);
 
-    let name = document.createElement('h3');
-    name.innerText = project.name;
-    card.appendChild(name);
+    let title = document.createElement('h3');
+    title.innerText = project.title;
+    card.appendChild(title);
+
+    let description = document.createElement('p');
+    description.innerText = project.description;
+    card.appendChild(description);
+
+    let date = document.createElement('p');
+    date.innerText = project.dueDate;
+    card.appendChild(date);
+
+    let notesHeading = document.createElement('h3');
+    notesHeading.innerText = 'Notes';
+    card.appendChild(notesHeading);
+    let notes = document.createElement('ul');
+    card.appendChild(notes);
+    for (let note of project.notes) {
+        let li = document.createElement('li');
+        li.innerText = note;
+        notes.appendChild(li);
+    }
 }

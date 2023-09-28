@@ -47,6 +47,8 @@ table {
 	border-spacing: 0;
 }
 
+/* homepage styles
+*/
 #content {
     height: 100vh;
     display: grid;
@@ -83,8 +85,9 @@ nav {
     padding: 50px;
     display: grid;
     grid-template: 
-            'h2' clamp(40px, 10%, 150px)
-            'div';
+            'h2 add' 40px
+            'div div' / 1fr 120px;
+    gap: 40px;
 }
 
 .container > h2 {
@@ -94,7 +97,17 @@ nav {
 .container > div {
     grid-area: div;
     display: grid;
+    gap: 30px;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.card {
+    background-color: white;
+    padding: 10px;
+}
+
+.add {
+    grid-area: add;
 }
 
 footer {
@@ -107,4 +120,37 @@ footer {
 
 footer h3 {
     font-size: 20px;
+}
+
+/* popup styles
+*/
+.cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup {
+    background-color: white;
+    width: 500px;
+    height: 400px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+}
+
+fieldset > * {
+    margin: 10px;
 }
