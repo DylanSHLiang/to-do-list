@@ -48,5 +48,63 @@ table {
 }
 
 #content {
+    height: 100vh;
     display: grid;
+    grid-template: 
+            'header header' 80px
+            'nav container'
+            'footer footer' 40px / 200px 1fr;
+    font-family: sans-serif;
+}
+
+header {
+    grid-area: header;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+nav {
+    background-color: chocolate;
+    grid-area: nav;
+    padding: 50px 20px 300px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.container {
+    background-color: aqua;
+    grid-area: container;
+    padding: 50px;
+    display: grid;
+    grid-template: 
+            'h2' clamp(40px, 10%, 150px)
+            'div';
+}
+
+.container > h2 {
+    grid-area: h2;
+}
+
+.container > div {
+    grid-area: div;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+footer {
+    background-color: aliceblue;
+    display: flex;
+    grid-area: footer;
+    justify-content: space-around;
+    align-items: center;
+}
+
+footer h3 {
+    font-size: 20px;
 }

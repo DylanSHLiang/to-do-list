@@ -4,7 +4,14 @@ const content = document.querySelector('#content');
 
 export function loadPage() {
     loadHeader();
-    loadMain();
+    loadNav();
+
+    let container = document.createElement('div');
+    document.innerText = 'Projects';
+    container.classList.add('container');
+    content.appendChild(container);
+    loadProjects(container);
+    
     loadFooter();
 }
 
@@ -17,20 +24,9 @@ function loadHeader() {
     header.appendChild(title);
 }
 
-function loadMain() {
-    let main = document.createElement('main');
-    content.appendChild(main);
-
-    loadNav(main);
-
-    let tab = document.createElement('div');
-    main.appendChild(tab);
-    loadProjects(tab);
-}
-
-function loadNav(main) {
+function loadNav() {
     let nav = document.createElement('nav');
-    main.appendChild(nav);
+    content.appendChild(nav);
 
     let projects = document.createElement('button');
     projects.innerText = 'Projects';
@@ -62,7 +58,7 @@ function loadFooter() {
     content.appendChild(footer);
 
     let sources = document.createElement('h3');
-    sources.innerText = 'All my own work!';
+    sources.innerText = 'All my own work';
     footer.appendChild(sources);
 
     let github = document.createElement('h3');
@@ -76,6 +72,6 @@ function loadFooter() {
     footer.appendChild(github);
     
     let copyright = document.createElement('h3');
-    copyright.innerText = 'All my own work!';
+    copyright.innerText = 'Dylan Liang - 2023 ©';
     footer.appendChild(copyright);
 }

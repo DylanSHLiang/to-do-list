@@ -11,11 +11,11 @@ export function loadProjects(parent) {
     parent.appendChild(container);
 
     for (let project of projects) {
-        loadProject(container, project);
+        loadProjectCard(container, project);
     }
 }
 
-function loadProject(parent, project) {
+function loadProjectCard(parent, project) {
     let card = document.createElement('div');
     parent.appendChild(card);
 
