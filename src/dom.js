@@ -34,17 +34,19 @@ function loadNav() {
     nav.appendChild(projects);
 
     createList(nav, 'Upcoming Tasks');
-
+    
     createList(nav, 'Priority Tasks');
 }
 
 function createList(parent, name) {
     let div = document.createElement('list');
     parent.appendChild(div);
+
     let heading = document.createElement('h3');
     heading.innerText = name;
     heading.classList.add('listHeading');
     div.appendChild(heading);
+
     let list = document.createElement('ul');
     div.appendChild(list);
     for (let task in tasks) {
